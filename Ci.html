@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF8">
+<title>Utils</title>
+
+<script Language="JavaScript">
+
+function validate()
+{
+  var text = document.getElementById('texto').value;
+  
+  if(!checkLength(text))
+  {
+      alert("no tiene la longitud adecuada");
+	  return;
+  }
+  
+  if(!checkNumber(text))
+  {
+      alert("no es un numero");
+	  return;
+  }
+  
+  //alert('j');
+  if(!checkDate(text))
+  {
+     alert('no es una fecha');
+	 return;  
+  }
+  
+  if(!checkId(text))
+  {
+     alert('no es un carnet');
+	 return;  
+  }
+  
+  var sex = getSex(text);
+  var sexText = (sex == 0)? 'hembra': (sex == 1)? 'varon':'none';
+  
+  var age = getAge(text);
+  
+  alert('es ' + age);
+  
+  
+};
+
+
+
+</script>
+
+</head>
+<body>
+<div class="grid-container">
+<input type="text" value="90092525941" id="texto"/>
+<input type="button" onClick="validate();" value="Check">
+</div>
+    <script type="text/javascript" src= "./Js/check_id.js"></script>  
+</body>
+</html>

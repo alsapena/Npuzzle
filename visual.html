@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+<title>Utils</title>
+
+<link href="./Js/main.css" rel="stylesheet" type="text/css">
+
+<!-- <script Language="JavaScript">
+</script> -->
+
+</head>
+<body>
+<div class="mama">
+<div class="bContainer">
+    <img id="imageFilm" src="./Images/nophoto.jpg" width="210" height="100" class="imgRoundex" />
+	
+	<input type="file" id="Image" name="Image" onchange="changeImage()" class="pabajo"/>
+</div>
+
+<div class="container">
+
+	<div class="above-game">
+		<p class="game-intro">Ordena los numeros<strong> N-Puzzle</strong></p>
+		<a class="restart-button">Juego nuevo</a>
+					
+	</div>
+ <div class="game-container">
+ 
+ <div class="game-message">
+        <p></p>
+        <div class="lower">
+	      <a class="keep-playing-button">En pausa</a>
+          <a class="retry-button">Intentarlo de nuevo</a>
+<!--           <div class="score-sharing"></div>
+          <div class="mailing-list">
+            <!-- MailChimp Signup Form -->
+            <!-- <form action="http://gabrielecirulli.us8.list-manage.com/subscribe/post?u=991201206817cfb4e4247ed6c&id=7928ea817b" method="post" name="mc-embedded-subscribe-form" class="mailing-list-form" target="_blank">
+              <strong>Obtén las últimas novedades del juego</strong>
+
+              <input type="email" value="" name="EMAIL" class="mailing-list-email-field" placeholder="Tu correo electrónico" spellcheck="false">
+
+              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups
+              <div style="position: absolute; left: -9999px;">
+                <input type="text" name="b_991201206817cfb4e4247ed6c_7928ea817b" value="">
+              </div>
+
+              <input type="submit" value="Go" name="subscribe" class="mailing-list-subscribe-button">
+            </form> 
+          </div> -->
+        </div>
+      </div>
+ 
+<div class="grid-container">
+        <!-- <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>  -->   
+      </div>
+	  <div class="tile-container">
+	  </div>
+</div>
+</div>
+</div>
+  
+  <script src= "./Js/board.js"></script> 
+  <script src= "./Js/tile.js"></script>
+  <script src= "./Js/keyboard_input_manager.js"></script>
+  <script src= "./Js/html_actuator.js"></script>
+  <script src="./Js/local_storage_manager.js"></script>
+  <script src= "./Js/tictactoe.js"></script>
+  <script src= "./Js/application.js"></script>
+  
+  <script type="text/javascript">
+        function changeImage() {
+            var input = document.getElementById("Image");
+            var fReader = new FileReader();
+            fReader.readAsDataURL(input.files[0]);
+            fReader.onloadend = function (event) {
+                var img = document.getElementById("imageFilm");
+                img.src = event.target.result;
+				
+				window.requestAnimationFrame(function () 
+				{
+				  new TicTacToe(4,4,KeyboardInputManager, HTMLActuator,LocalStorageManager,event.target.result);
+				});
+
+            };
+        };
+  </script>
+  
+</body>
+</html>
